@@ -1,0 +1,36 @@
+{
+  "name": "website",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@headlessui/react": "^1.7.16",
+    "@mapbox/rehype-prism": "github:mapbox/rehype-prism",
+    "@mdx-js/loader": "^2.3.0",
+    "@mdx-js/react": "^2.3.0",
+    "@next/mdx": "^13.4.12",
+    "@tailwindcss/typography": "github:tailwindcss/typography",
+    "@types/node": "20.4.4",
+    "@types/react": "18.2.15",
+    "@types/react-dom": "18.2.7",
+    "autoprefixer": "10.4.14",
+    "clsx": "^2.0.0",
+    "fast-glob": "^3.3.1",
+    "feed": "^4.2.2",
+    "focus-visible": "^5.2.0",
+    "next": "13.4.12",
+    "next-router-mock": "^0.9.7",
+    "postcss": "8.4.27",
+    "postcss-focus-visible": "^9.0.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "remark-gfm": "^3.0.1",
+    "tailwindcss": "3.3.3",
+    "typescript": "5.1.6"
+  }
+}
