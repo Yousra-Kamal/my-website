@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
 import { Popover, Transition } from "@headlessui/react";
 import clsx from "clsx";
 
-import Container from "./Container";
+import { Container } from "./Container";
 
 import avatarImage from "../images/avatar.jpg";
 
@@ -359,7 +359,7 @@ export default function Header() {
         className="pointer-events-none relative z-50 flex flex-none flex-col"
         style={{
           height: "var(--header-height)",
-          marginBottom: "var(--header-mb)",
+          marginBottom: "var(--header-mb)"
         }}
       >
         {isHomePage && (
@@ -381,7 +381,7 @@ export default function Header() {
                     className="absolute left-0 top-3 origin-left transition-opacity"
                     style={{
                       opacity: "var(--avatar-border-opacity, 0)",
-                      transform: "var(--avatar-border-transform)",
+                      transform: "var(--avatar-border-transform)"
                     }}
                   />
                   <Avatar
@@ -403,6 +403,7 @@ export default function Header() {
             className="top-[var(--header-top,theme(spacing.6))] w-full"
             style={{ position: "var(--header-inner-position)" }}
           >
+            <div>test</div>
             <div className="relative flex gap-4">
               <div className="flex flex-1">
                 {!isHomePage && (
