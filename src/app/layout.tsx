@@ -2,7 +2,8 @@ import "./globals.css";
 import "focus-visible";
 import type { Metadata } from "next";
 
-import Header from "./components/Header";
+import Header from "./Header";
+import Footer from "./Footer";
 
 const modeScript = `
 let darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
@@ -41,29 +42,29 @@ function updateModeWithoutTransitions() {
 
 export const metadata: Metadata = {
   title: "Yousra Kamal",
-  description: "Yousra's website"
+  description: "Yousra's website",
 };
 
 export default function RootLayout({
-  children
+  children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="h-full antialiased">
+    <html className="h-full antialiased" lang="en">
       <head>
         <script dangerouslySetInnerHTML={{ __html: modeScript }} />
       </head>
-      <body className="flex h-full flex-col bg-zinc-50 dark:bg-black">
+      <body className="flex h-full bg-zinc-50 dark:bg-black [&>#\_\_next]:flex [&>#\_\_next]:w-full">
         <div className="fixed inset-0 flex justify-center sm:px-8">
           <div className="flex w-full max-w-7xl lg:px-8">
             <div className="w-full bg-white ring-1 ring-zinc-100 dark:bg-zinc-900 dark:ring-zinc-300/20" />
           </div>
         </div>
-        <div className="relative">
+        <div className="relative flex w-full flex-col">
           <Header />
-          <main>{children}</main>
-          {/* <Footer /> */}
+          <main className="flex-auto">{children}</main>
+          <Footer />
         </div>
       </body>
     </html>

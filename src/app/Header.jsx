@@ -8,8 +8,7 @@ import { Popover, Transition } from "@headlessui/react";
 import clsx from "clsx";
 
 import { Container } from "./Container";
-
-import avatarImage from "../images/avatar.jpg";
+import sora from "./images/yousra.jpg";
 
 function CloseIcon(props) {
   return (
@@ -127,8 +126,6 @@ function MobileNavigation(props) {
                 <MobileNavItem href="/about">About</MobileNavItem>
                 <MobileNavItem href="/articles">Articles</MobileNavItem>
                 <MobileNavItem href="/projects">Projects</MobileNavItem>
-                <MobileNavItem href="/speaking">Speaking</MobileNavItem>
-                <MobileNavItem href="/uses">Uses</MobileNavItem>
               </ul>
             </nav>
           </Popover.Panel>
@@ -168,8 +165,6 @@ function DesktopNavigation(props) {
         <NavItem href="/about">About</NavItem>
         <NavItem href="/articles">Articles</NavItem>
         <NavItem href="/projects">Projects</NavItem>
-        <NavItem href="/speaking">Speaking</NavItem>
-        <NavItem href="/uses">Uses</NavItem>
       </ul>
     </nav>
   );
@@ -237,7 +232,7 @@ function Avatar({ large = false, className, ...props }) {
       {...props}
     >
       <Image
-        src={avatarImage}
+        src={sora}
         alt=""
         sizes={large ? "4rem" : "2.25rem"}
         className={clsx(
@@ -359,7 +354,7 @@ export default function Header() {
         className="pointer-events-none relative z-50 flex flex-none flex-col"
         style={{
           height: "var(--header-height)",
-          marginBottom: "var(--header-mb)"
+          marginBottom: "var(--header-mb)",
         }}
       >
         {isHomePage && (
@@ -381,7 +376,7 @@ export default function Header() {
                     className="absolute left-0 top-3 origin-left transition-opacity"
                     style={{
                       opacity: "var(--avatar-border-opacity, 0)",
-                      transform: "var(--avatar-border-transform)"
+                      transform: "var(--avatar-border-transform)",
                     }}
                   />
                   <Avatar
@@ -403,7 +398,6 @@ export default function Header() {
             className="top-[var(--header-top,theme(spacing.6))] w-full"
             style={{ position: "var(--header-inner-position)" }}
           >
-            <div>test</div>
             <div className="relative flex gap-4">
               <div className="flex flex-1">
                 {!isHomePage && (
