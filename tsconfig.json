@@ -33,6 +33,6 @@
     "src/app/Header.jsx",
     "src/app/Footer.jsx",
     "src/app/about/page.jsx"
-, "src/app/articles/page.jsx"  ],
+, "src/app/articles/page.jsx", "src/app/articles/[slug]/page.jsx"  ],
   "exclude": ["node_modules"]
 }

@@ -39,7 +39,7 @@ export default function About() {
         <title>About - Yousra Kamal</title>
         <meta
           name="description"
-          content="I’m Yousra Kamal. I'm a clinical pharmacist who's passionate about web development."
+          content="I’m Yousra Kamal. I'm a clinical pharmacist and coding is my passion."
         />
       </Head>
       <Container className="mt-16 sm:mt-32">
@@ -56,8 +56,8 @@ export default function About() {
           </div>
           <div className="lg:order-first lg:row-span-2">
             <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-              I’m Yousra Kamal. I’m a clinical pharmacist with passion for web
-              development.
+              I’m Yousra Kamal. I’m a clinical pharmacist and coding is my
+              passion.
             </h1>
             <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
               <p>

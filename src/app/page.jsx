@@ -7,37 +7,15 @@ import { Button } from "./Button";
 import { Card } from "./Card";
 import { Container } from "./Container";
 import { GitHubIcon, LinkedInIcon } from "./SocialIcons";
+import image1 from "./images/photos/pills.jpg";
+import image2 from "./images/photos/Chemistry.jpg";
+import image3 from "./images/photos/image-3.jpg";
+import image4 from "./images/photos/coding.jpg";
+import image5 from "./images/photos/notes.jpg";
 import assalma from "./images/logos/assalma.jpg";
 import alyosef from "./images/logos/alyosef.jpg";
-
 import { formatDate } from "./lib/formatDate";
-/*import { generateRssFeed } from './lib/generateRssFeed'
-import { getAllArticles } from './lib/getAllArticles'
- */
-import data from "./articles/data.json";
-
-function MailIcon(props) {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-      {...props}
-    >
-      <path
-        d="M2.75 7.75a3 3 0 0 1 3-3h12.5a3 3 0 0 1 3 3v8.5a3 3 0 0 1-3 3H5.75a3 3 0 0 1-3-3v-8.5Z"
-        className="fill-zinc-100 stroke-zinc-400 dark:fill-zinc-100/10 dark:stroke-zinc-500"
-      />
-      <path
-        d="m4 6 6.024 5.479a2.915 2.915 0 0 0 3.952 0L20 6"
-        className="stroke-zinc-400 dark:stroke-zinc-500"
-      />
-    </svg>
-  );
-}
+import getArticleData from "./utils/getArticleData";
 
 function BriefcaseIcon(props) {
   return (
@@ -78,13 +56,16 @@ function ArrowDownIcon(props) {
 function Article({ article }) {
   return (
     <Card as="article">
-      <Card.Title href={`/articles/${article.slug}`}>
+      <Card.Title
+        target={"_blank"}
+        href={`https://yousraa.hashnode.dev/${article.slug}`}
+      >
         {article.title}
       </Card.Title>
-      <Card.Eyebrow as="time" dateTime={article.date} decorate>
-        {formatDate(article.date)}
+      <Card.Eyebrow as="time" dateTime={article.dateAdded} decorate>
+        {formatDate(article.dateAdded)}
       </Card.Eyebrow>
-      <Card.Description>{article.description}</Card.Description>
+      <Card.Description>{article.brief}</Card.Description>
       <Card.Cta>Read article</Card.Cta>
     </Card>
   );
@@ -164,8 +145,14 @@ function Resume() {
   );
 }
 
-/* function Photos() {
-  let rotations = ['rotate-2', '-rotate-2', 'rotate-2', 'rotate-2', '-rotate-2']
+function Photos() {
+  let rotations = [
+    "rotate-2",
+    "-rotate-2",
+    "rotate-2",
+    "rotate-2",
+    "-rotate-2",
+  ];
 
   return (
     <div className="mt-16 sm:mt-20">
@@ -174,7 +161,7 @@ function Resume() {
           <div
             key={image.src}
             className={clsx(
-              'relative aspect-[9/10] w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:w-72 sm:rounded-2xl',
+              "relative aspect-[9/10] w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:w-72 sm:rounded-2xl",
               rotations[imageIndex % rotations.length]
             )}
           >
@@ -188,22 +175,24 @@ function Resume() {
         ))}
       </div>
     </div>
-  )
-} */
+  );
+}
 
-export default function Home() {
+export default async function Home() {
+  const results = await getArticleData();
+
+  const posts = results.data.user.publication.posts;
+  // console.log("POSTS", posts);
   return (
     <>
       <Head>
         <title>Yousra Kamal - From pharmacy to web development.</title>
         <meta
           name="description"
-          content="I’m Yousra, a clinical pharmacist from Sudan. I have been working in
-          a hospital industry for 8 years with my most recent experience being
-          a clinical pharmacist at AS-Salama Hospiatl. I migrated to Australia
-          and as I’m starting a new chapter of my life and being motivated by
-          a desire for progress and a curiosity for learning, I decided to
-          pursue a new career in web development."
+          content="   I’m Yousra, I have a bachelor degree in clinical pharmacy. I worked
+          as a pharmacist for 8 years. I migrated to Australia and my husband
+          introduced me to the IT world, I found it interesting and i decided
+          to pursue a career in web development."
         />
       </Head>
       <Container className="mt-9">
@@ -233,12 +222,12 @@ export default function Home() {
           </div>
         </div>
       </Container>
-      {/*   <Photos /> */}
+      <Photos />
       <Container className="mt-24 md:mt-28">
         <div className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
           <div className="flex flex-col gap-16">
-            {data.map((article) => (
-              <Article key={article.slug} article={article} />
+            {posts.map((article) => (
+              <Article key={article.title} article={article} />
             ))}
           </div>
           <div className="space-y-10 lg:pl-16 xl:pl-24">
@@ -249,7 +238,7 @@ export default function Home() {
     </>
   );
 }
-
+/* 
 export async function getStaticProps() {
   if (process.env.NODE_ENV === "production") {
     await generateRssFeed();
@@ -263,3 +252,4 @@ export async function getStaticProps() {
     },
   };
 }
+ */
