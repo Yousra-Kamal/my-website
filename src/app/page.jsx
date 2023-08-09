@@ -53,18 +53,19 @@ function ArrowDownIcon(props) {
   );
 }
 
-async function Article({ article }) {
-  const data = await getArticleData();
-  //console.log(data);
+const getUrl = (publicationDomain, blogHandle, slug) => {
+  if (publicationDomain) {
+    return `https://${publicationDomain}/${slug}`;
+  }
+  return `https://${blogHandle}.hashnode.dev/${slug}`;
+};
 
+async function Article({ article, publicationDomain, blogHandle }) {
   return (
     <Card as="article">
       <Card.Title
         target={"_blank"}
-        href={
-          `https://${data.publicationDomain}/${article.slug}` &&
-          `https://${data.blogHandle}.hashnode.dev/${article.slug}`
-        }
+        href={getUrl(publicationDomain, blogHandle, article.slug)}
       >
         {article.title}
       </Card.Title>
@@ -187,7 +188,7 @@ function Photos() {
 export default async function Home() {
   const data = await getArticleData();
 
-  // const posts = results.data.user.publication.posts; //different way//
+  // const posts = results.data.user.publication.posts;
   // console.log("POSTS", posts);
   return (
     <>
@@ -232,8 +233,13 @@ export default async function Home() {
       <Container className="mt-24 md:mt-28">
         <div className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
           <div className="flex flex-col gap-16">
-            {data.posts.map((article) => (
-              <Article key={article.title} article={article} />
+            {data.posts.map((a) => (
+              <Article
+                key={a.title}
+                article={a}
+                publicationDomain={data.publicationDomain}
+                blogHandle={data.blogHandle}
+              />
             ))}
           </div>
           <div className="space-y-10 lg:pl-16 xl:pl-24">
