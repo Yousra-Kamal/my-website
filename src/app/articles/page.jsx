@@ -4,14 +4,19 @@ import { SimpleLayout } from "../SimpleLayout";
 import { formatDate } from "../lib/formatDate";
 import getArticleData from "../utils/getArticleData";
 
-function Article({ article }) {
-  // console.log("article", article);
+async function Article({ article }) {
+  const data = await getArticleData();
+  // console.log("ARTICLE", article);
+
   return (
     <article className="md:grid md:grid-cols-4 md:items-baseline">
       <Card className="md:col-span-3">
         <Card.Title
           target={"_blank"}
-          href={`https://yousraa.hashnode.dev/${article.slug}`}
+          href={
+            `https://${data.publicationDomain}/${article.slug}` &&
+            `https://${data.blogHandle}.hashnode.dev/${article.slug}`
+          }
         >
           {article.title}
         </Card.Title>
@@ -38,9 +43,9 @@ function Article({ article }) {
 }
 
 export default async function ArticlesIndex() {
-  const results = await getArticleData();
+  const data = await getArticleData();
 
-  const posts = results.data.user.publication.posts;
+  // const posts = results.data.user.publication.posts;
   // console.log("POSTS", posts);
   return (
     <>
@@ -57,7 +62,7 @@ export default async function ArticlesIndex() {
       >
         <div className="md:border-l md:border-zinc-100 md:pl-6 md:dark:border-zinc-700/40">
           <div className="flex max-w-3xl flex-col space-y-16">
-            {posts.map((article) => (
+            {data.posts.map((article) => (
               <Article key={article.title} article={article} />
             ))}
           </div>
@@ -66,11 +71,3 @@ export default async function ArticlesIndex() {
     </>
   );
 }
-
-/* export async function getStaticProps() {
-  return {
-    props: {
-      articles: (await getAllArticles()).map(({ component, ...meta }) => meta),
-    },
-  };
-} */

@@ -53,12 +53,18 @@ function ArrowDownIcon(props) {
   );
 }
 
-function Article({ article }) {
+async function Article({ article }) {
+  const data = await getArticleData();
+  //console.log(data);
+
   return (
     <Card as="article">
       <Card.Title
         target={"_blank"}
-        href={`https://yousraa.hashnode.dev/${article.slug}`}
+        href={
+          `https://${data.publicationDomain}/${article.slug}` &&
+          `https://${data.blogHandle}.hashnode.dev/${article.slug}`
+        }
       >
         {article.title}
       </Card.Title>
@@ -179,9 +185,9 @@ function Photos() {
 }
 
 export default async function Home() {
-  const results = await getArticleData();
+  const data = await getArticleData();
 
-  const posts = results.data.user.publication.posts;
+  // const posts = results.data.user.publication.posts; //different way//
   // console.log("POSTS", posts);
   return (
     <>
@@ -226,7 +232,7 @@ export default async function Home() {
       <Container className="mt-24 md:mt-28">
         <div className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
           <div className="flex flex-col gap-16">
-            {posts.map((article) => (
+            {data.posts.map((article) => (
               <Article key={article.title} article={article} />
             ))}
           </div>
@@ -238,18 +244,3 @@ export default async function Home() {
     </>
   );
 }
-/* 
-export async function getStaticProps() {
-  if (process.env.NODE_ENV === "production") {
-    await generateRssFeed();
-  }
-
-  return {
-    props: {
-      articles: (await getAllArticles())
-        .slice(0, 4)
-        .map(({ component, ...meta }) => meta),
-    },
-  };
-}
- */
