@@ -188,18 +188,18 @@ function Photos() {
 export default async function Home() {
   const data = await getArticleData();
 
-  // const posts = results.data.user.publication.posts;
-  // console.log("POSTS", posts);
   return (
     <>
       <Head>
         <title>Yousra Kamal - From pharmacy to web development.</title>
         <meta
           name="description"
-          content="   I’m Yousra, I have a bachelor degree in clinical pharmacy. I worked
-          as a pharmacist for 8 years. I migrated to Australia and my husband
-          introduced me to the IT world, I found it interesting and i decided
-          to pursue a career in web development."
+          content="       I’m Yousra, a clinical pharmacist from Sudan. I have been working in
+          a hospital industry for 8 years with my most recent experience being
+          a clinical pharmacist at AS-Salama Hospiatl. I migrated to Australia
+          and as I’m starting a new chapter of my life and being motivated by
+          a desire for progress and a curiosity for learning, I decided to
+          pursue a new career in web development."
         />
       </Head>
       <Container className="mt-9">
@@ -217,15 +217,16 @@ export default async function Home() {
           </p>
           <div className="mt-6 flex gap-6">
             <SocialLink
-              href="https://github.com"
+              target={"_blank"}
+              href="https://github.com/Yousra-Kamal"
               aria-label="Follow on GitHub"
               icon={GitHubIcon}
             />
-            <SocialLink
+            {/*  <SocialLink
               href="https://linkedin.com"
               aria-label="Follow on LinkedIn"
               icon={LinkedInIcon}
-            />
+            /> */}
           </div>
         </div>
       </Container>

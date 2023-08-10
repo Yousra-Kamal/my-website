@@ -7,10 +7,11 @@ import { Container } from "../Container";
 import { GitHubIcon, LinkedInIcon } from "../SocialIcons";
 import pharmacist from "../images/pharmacist.jpg";
 
-function SocialLink({ className, href, children, icon: Icon }) {
+function SocialLink({ className, href, children, target, icon: Icon }) {
   return (
     <li className={clsx(className, "flex")}>
       <Link
+        target={target}
         href={href}
         className="group flex text-sm font-medium text-zinc-800 transition hover:text-teal-500 dark:text-zinc-200 dark:hover:text-teal-500"
       >
@@ -84,12 +85,17 @@ export default function About() {
           </div>
           <div className="lg:pl-20">
             <ul role="list">
-              <SocialLink href="#" icon={GitHubIcon} className="mt-4">
+              <SocialLink
+                href="https://github.com/Yousra-Kamal"
+                target={"_blank"}
+                icon={GitHubIcon}
+                className="mt-4"
+              >
                 Follow on GitHub
               </SocialLink>
-              <SocialLink href="#" icon={LinkedInIcon} className="mt-4">
+              {/*  <SocialLink href="#" icon={LinkedInIcon} className="mt-4">
                 Follow on LinkedIn
-              </SocialLink>
+              </SocialLink> */}
               <SocialLink
                 href="mailto:spencer@planetaria.tech"
                 icon={MailIcon}

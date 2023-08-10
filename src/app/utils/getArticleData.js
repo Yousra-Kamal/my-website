@@ -25,8 +25,6 @@ export default async function getArticleData() {
     },
     method: "POST",
   });
-  // console.log("result", await result.json());
-  // console.log("hit"); 
 
   const result = await res.json();
   const { data } = result;
