@@ -62,23 +62,23 @@ export default function About() {
             </h1>
             <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
               <p>
-                My interest in pharmacy began at a young age when i saw the
-                impact that medications can have on a person's quality of life.
-                My true passion lies in helping others.
+                My interest in pharmacy began at a young age when I saw how
+                medications can impact a person's quality of life. My true
+                passion lies in helping others.
               </p>
               <p>
-                After I migrated to Australia I decided that I wanted to learn
-                something new, That's when my husband suggested that i learn
-                coding. Taking his advice and knowing that almost every element
-                of our lives now depends on computer and IT , I started learning
-                through online tutorilas and courses, and I discovered that
-                coding is something i really enjoy.
+                After I immigrated to Australia, I decided that I wanted to
+                learn something new, That's when my husband suggested that I
+                learn coding. Taking his advice and knowing that almost every
+                element of our lives now depends on computer and IT , I started
+                learning through online tutorials and courses, and I discovered
+                that coding is something I enjoy.
               </p>
               <p>
-                What I love the most about Programming is that it brings out the
-                logical thinking and problem solving skills in me. After months
-                of long studying, practicing and continually falling in love
-                with this field, my ambition is to become a successful front-end
+                What I love the most about Programming is that it brings out my
+                logical thinking and problem-solving skills. After months of
+                studying, practicing, and continually falling in love with this
+                field, my ambition is to become a successful front-end
                 developer.
               </p>
             </div>

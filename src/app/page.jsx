@@ -209,8 +209,8 @@ export default async function Home() {
           </h1>
           <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
             I’m Yousra, a clinical pharmacist from Sudan. I have been working in
-            a hospital industry for 8 years with my most recent experience being
-            a clinical pharmacist at AS-Salama Hospiatl. I migrated to Australia
+            hospital industry for 8 years with my most recent experience being a
+            clinical pharmacist at AS-Salama Hospital. I immigrated to Australia
             and as I’m starting a new chapter of my life and being motivated by
             a desire for progress and a curiosity for learning, I decided to
             pursue a new career in web development.
