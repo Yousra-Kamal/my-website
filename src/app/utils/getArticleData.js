@@ -25,7 +25,6 @@ export default async function getArticleData() {
     },
     method: "POST",
   });
-
   const result = await res.json();
   const { data } = result;
   const { user } = data;

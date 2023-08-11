@@ -185,6 +185,7 @@ function Photos() {
   );
 }
 
+export const revalidate = 3600;
 export default async function Home() {
   const data = await getArticleData();
 

@@ -40,6 +40,7 @@ async function Article({ article, publicationDomain, blogHandle }) {
   );
 }
 
+export const revalidate = 3600;
 export default async function ArticlesIndex() {
   const data = await getArticleData();
 
